@@ -4,17 +4,17 @@
  fprintf('\nMendoza 1991 model \n')
 
 %% Model Parameters (values taken from AER published paper)
- gamma  = 2.0;                               % Risk aversion coefficient 
- omega  = 1.455;                             % Labor elasticity
- beta   = 0.11;                              % discount factor constant  
- r      = 0.04;                              % interest rate 
- delta  = 0.1;                               % depreciation
- alpha  = 0.32;                              % capital's share of income
- phi    = 0.028;                             % adjustment costs 0.025
- rho    = 0.42;                              % auto-correlation rho=0.356;
- rhoen  = rho;                               % cross-correlation 
- sigmae = 0.0118;                            % stdev of productivity shocks
- sigman = 0.0118;                            % stdev of interest rate shock
+ gamma  = 2.0;                             % Risk aversion coefficient 
+ omega  = 1.455;                           % Labor elasticity
+ beta   = 0.11;                            % discount factor constant  
+ r      = 0.04;                            % interest rate 
+ delta  = 0.1;                             % depreciation
+ alpha  = 0.32;                            % capital's share of income
+ phi    = 0.028;                           % adjustment costs 0.025
+ rho    = 0.42;                            % auto-correlation rho=0.356;
+ rhoen  = rho;                             % cross-correlation 
+ sigmae = 0.0118;                          % stdev of productivity shocks
+ sigman = 0.0118;                          % stdev of interest rate shock
 
 %% Deterministic steady state (sometimes is useful)
 z   = 0; 
@@ -110,13 +110,13 @@ end
  d2yss = amean/ymean;
 
 %% Graphics 
- ax = aa(x)';                                  % Store policy in ax vector
+ ax = aa(x)';                                % Store policy in ax vector
  kx = kk(x)';
- V  = reshape(v,n(1),n(2),n(3));               % Rearrange v 
- X  = reshape(x,n(1),n(2),n(3));               % Rearrange x
- PP = reshape(pi,n(1),n(2),n(3));              % Rearrange pi 
- Ax = reshape(ax,n(1),n(2),n(3));              % Rearrange a(x) in a matrix
- Kx = reshape(kx,n(1),n(2),n(3));              % Rearrange k(x) in a matrix
+ V  = reshape(v,n(1),n(2),n(3));             % Rearrange v 
+ X  = reshape(x,n(1),n(2),n(3));             % Rearrange x
+ PP = reshape(pi,n(1),n(2),n(3));            % Rearrange pi 
+ Ax = reshape(ax,n(1),n(2),n(3));            % Rearrange a(x) in a matrix
+ Kx = reshape(kx,n(1),n(2),n(3));            % Rearrange k(x) in a matrix
 
  V = permute(V,[3 2 1]);    % Reverse row and page subscripts 
  X = permute(X,[3 2 1]);    % Reverse row and page subscripts
@@ -134,18 +134,13 @@ end
 % figure(2)
 % plot(aa(x));
 
- figure3=figure('Color',[1 1 1]); % color de fondo, en este caso es blanco
- axes1 = axes(...
-  'CameraPosition',[4.913 -9.243 0.05396],...
-  'CameraUpVector',[-15.78 89.04 0.7743],...
-  'Parent',figure3);             
- grid(axes1,'off')
- xlim(axes1,[kmin kmax]);
- ylim(axes1,[amin amax]);
- zlim(axes1,[0 0.015]);
- xlabel('K'),ylabel(axes1,'A'),zlabel(axes1,'PKA'),hold(axes1)
+ figure3=figure('Color',[1 1 1]); % color de fondo: blanco
+ xlim([kmin kmax]);
+ ylim([amin amax]);
+ zlim([0 0.015]);
+ xlabel('K'),ylabel('A'),zlabel('PKA')
  surf(k,a,PP(:,:,1)','FaceColor',[1 1 1])
-%toc
+
 
 %% Statistics
 % Reporting main theoretical moments
@@ -163,4 +158,4 @@ espacio = ['   ';'   ';'   ';'   ';'   ';'   '];
 stddevs = [ysdv;csdv;ksdv;lsdv;asdv; NaN];
 
 display('Steady state, stoch. mean and std dev. of Mendoza (1991)')
-TABLE = [names num2str(ss) espacio num2str(means) espacio num2str(stddevs)]
+TABLE=[names num2str(ss) espacio num2str(means) espacio num2str(stddevs)]
