@@ -16,7 +16,7 @@ function d = ergdist(P,d)
 % Note: Does not work for Markov Chains with transient states.
 %       Follows Ljundqvist and Sargent (2000). 
 
-if sum(P')~=1; warning('Not a transition probability matrix'); end;
+% if sum(P')~=1; warning('Check accuracy of transition matrix'); end;
 
 n = length(P);
 

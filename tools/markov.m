@@ -36,7 +36,7 @@ if any(any(p<0))
   error('Transition matrix contains negative elements');
 end
 if any(abs(p*ones(n,1)-1)>1e-14)
-  error('Rows of transition matrix do not sum to 1');
+  warning('Rows of transition matrix do not sum to 1');
 end
 
 

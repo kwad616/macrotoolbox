@@ -14,7 +14,8 @@
  if beta>=q; display('Set beta<q for convergence'); break; end;
 
 %% Markov chain for e: [e,Pe] = markovchain(ny,p,q,eps,m,a)
- [e,Pe] = markovchain(2,0.5,0.8,0.5,0.5,0.8);      % Markov chain
+% [e,Pe] = markovchain(2,0.5,0.8,0.5,0.5,0.8);      % Markov chain
+ [e,Pe] = markovchain(2,0.5,0.8,0.5,1);      % Markov chain
  
 %% State-space S = ExA  
  a = linspace(-8,3,250)';

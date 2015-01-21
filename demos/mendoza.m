@@ -48,11 +48,11 @@ a2y = -ass/yss;
  s2   = exp([-sigman;sigman]);
  
 % Original bounds in Mendoza(1991) 
- kmin = 3.25;  kmax = 3.56;  k = linspace(kmin,kmax,n(3));               
- amin = -1.42; amax = 0.08;  a = linspace(amin,amax,n(2));               
+%  kmin = 3.25;  kmax = 3.56;  k = linspace(kmin,kmax,n(3));               
+%  amin = -1.42; amax = 0.08;  a = linspace(amin,amax,n(2));               
 
-% kmin = kss*0.95; kmax = kss*1.05; k = linspace(kmin,kmax,n(3));
-% amin = ass*2; amax = ass*0; a = linspace(amin,amax,n(2));
+ kmin = kss*0.9565; kmax = kss*1.0478; k = linspace(kmin,kmax,n(3));
+ amin = ass*2.4060; amax = ass*0.1356; a = linspace(amin,amax,n(2));
 
  [S1,S2,A,K] = gridmake(s1,s2,a',k');           
  [aa,kk]     = gridmake(a',k');
@@ -135,9 +135,9 @@ end
 % plot(aa(x));
 
  figure3=figure('Color',[1 1 1]); % color de fondo: blanco
- xlim([kmin kmax]);
- ylim([amin amax]);
- zlim([0 0.015]);
+% xlim([kmin kmax]);
+% ylim([amin amax]);
+% zlim([0 0.015]);
  xlabel('K'),ylabel('A'),zlabel('PKA')
  surf(k,a,PP(:,:,1)','FaceColor',[1 1 1])
 

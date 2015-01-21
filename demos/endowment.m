@@ -65,7 +65,7 @@
  figure(2)
  plot([ypath cpath])
 
- [sdev,corrcont,corr,acov] = samplemoms([ypath cpath CApath],1,3)
+ [sdev,corrcont,corr,acov] = samplemoms([ypath cpath CApath],1,3);
 
 %% Model steady state statistics  
  fprintf('\nSteady-state Model Statistics \n ')

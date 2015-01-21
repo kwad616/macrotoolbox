@@ -24,12 +24,14 @@ function [X,P] = markovchain(N,p,q,e,m,a)
 % NOTE: For an evenly spaced grid of X:
 %        - if 0<p=q<1 then X follows a standard AR(1) process.
 %        - if p=q=0.5 then X follows has no persistence.
-%        - if p>q bad times are longer than good ones (ARCH process).
+%        - if p<q bad times are longer than good ones (ARCH process).
 %
 %       Also, note that in the last case, altering p and q does not 
 %       preserve the mean of X (i.e. is not a mean-preserving shift).
-
+%
 % Code by Franz Hamann, Banco de la Republica, December 2013
+% Addional comments welcome
+
 
  P  = [p 1-p; 1-q q];
 

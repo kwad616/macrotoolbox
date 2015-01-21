@@ -1,9 +1,9 @@
-function [smean,sdev,corr,acov] = samplemoms(x,m,k) 
+function [smean,sdev,corr,acorr] = samplemoms(x,m,k) 
 
 % SAMPLEMOMS Computes time series moments
 %
 % Usage: 
-%    [smean,sdev,corrcont,corr,acov] = samplemoms(x,m,k)
+%    [smean,sdev,corrcont,acorr] = samplemoms(x,m,k)
 %
 % Inputs:
 %  x      : TxN matrix of N time series column-vectors sized T by 1 each
@@ -13,7 +13,7 @@ function [smean,sdev,corr,acov] = samplemoms(x,m,k)
 %  smean : Nx1 vector of mean of N time series vectors
 %  sdev  : Nx1 vector of standard deviations of N time series vectors
 %  corr  : Nxk matrix of cross-colegrograms with respect to m for k lags
-%  acov  : covariogram of the time series vectors contained in matrix x
+%  acorr : correlogram of the time series vectors contained in matrix x
 %  
 
 
@@ -21,7 +21,7 @@ function [smean,sdev,corr,acov] = samplemoms(x,m,k)
 if nargin<3; k = 3; end         % default number of k lags and k leads  
 
 smean  = mean(x)';
-sdev   = std(x)';
+sdev   = 100*std(x)';
 corr   = ones(nseries,2*k+1);
 
 for i=-k:k,
@@ -34,4 +34,4 @@ for i=-k:k,
    end
 end
 
-[acov] = covariog(x,k);
+[acorr] = correlogram(x,k);
